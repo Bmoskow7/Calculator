@@ -34,6 +34,7 @@ public class input {
 					temp[i - spacecount] = expresion.charAt(i);
 					System.out.println("this is valid");
 				}
+			
 			else
 			{
 				System.out.println("Invalid input: invalid charector");
@@ -42,7 +43,12 @@ public class input {
 		}
 		
 		
-
+		System.out.println(inp);
+	}
+	
+	public float evaluate(Token[] inp)
+	{
+		for(int i = )
 	}
 
 }
