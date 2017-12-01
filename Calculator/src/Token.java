@@ -1,36 +1,36 @@
 
 public class Token {
-	int type;
-	float number;
+	public int type;
+	public float number;
 	public Token(float input)
 	{
-		type = 4;
+		type = 7;
 		number = input;
 	}
 	
-	public Token(String operator)
+	public Token(char operator)
 	{
 		
 		switch(operator)
 		{
 			case "(":
 				type = 1;
-				
-			case "*":
+			case ')':
 				type = 2;
+				break;
+			case "*":
+				type = 3;
 				break;
 			case "/":
-				type = 2;
-				break;
-			case "+":
-				type = 3;
-				break;
-			case "-":
-				type = 3;
-				break;
-			case ")":
 				type = 4;
 				break;
+			case "+":
+				type = 5;
+				break;
+			case '-':
+				type = 6;
+				break;
+			
 				
 		}
 		
