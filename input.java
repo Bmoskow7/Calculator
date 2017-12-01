@@ -41,32 +41,61 @@ public class input {
 			}
 		}
 		
-		public Token[] sorter(String s)
-		{
+//		public Token[] sorter(String s)
+//		{
+//		
+//		int start = 0;
+//		int end = 0;
+//		int count = 0;
+//		for(int i = 0; i < size; i++)
+//		{
+//			if(Character.isDigit(expresion.charAt(i)))
+//			{
+//				start = i;
+//				
+//			}
+//			else
+//			{
+//				end = i-1;
+//				tokeUp[count] = new Token(Float.parseFloat(expresion.substring(beg, end)));
+//				tokeUp[count+1] = new Token(expresion.charAt(i));
+//				count = count + 2;
+//			}
+//		}
+//		}
+//		for(int j = 0; j < size; j++)
+//		{
+//			System.out.println(tokeUp[j]);
+//		}
+//	}
+
+		int start = 0;
 		Token[] tokeUp = new Token[size];
-		int beg = 0;
-		int end = 0;
 		int count = 0;
 		for(int i = 0; i < size; i++)
 		{
 			if(Character.isDigit(expresion.charAt(i)))
 			{
-				beg = i;
-				
+				start = i;
+				System.out.println(i);
+				while (expresion.charAt(i+1)=='.' || (expresion.charAt(i+1) >= '0' && expresion.charAt(i+1) <= '9'))
+				{
+					i++;
+					//System.out.println(i);
+					System.out.println("hi");
+				}
+				//System.out.println(i);
+				tokeUp[count] = new Token(Float.parseFloat(expresion.substring(start, i)));
+				count++;
 			}
 			else
 			{
-				end = i-1;
-				tokeUp[count] = new Token(Float.parseFloat(expresion.substring(beg, end)));
-				tokeUp[count+1] = new Token(expresion.charAt(i));
-				count = count + 2;
+				tokeUp[count] = new Token(expresion.charAt(i));
+				count++;
 			}
 		}
-		}
-		for(int j = 0; j < size; j++)
-		{
-			System.out.println(tokeUp[j]);
-		}
-	}
-
+		
+		
+		
+}
 }
