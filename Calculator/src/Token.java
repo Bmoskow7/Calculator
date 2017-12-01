@@ -13,18 +13,18 @@ public class Token {
 		
 		switch(operator)
 		{
-			case "(":
+			case '(':
 				type = 1;
 			case ')':
 				type = 2;
 				break;
-			case "*":
+			case '*':
 				type = 3;
 				break;
-			case "/":
+			case '/':
 				type = 4;
 				break;
-			case "+":
+			case '+':
 				type = 5;
 				break;
 			case '-':

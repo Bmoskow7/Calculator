@@ -6,7 +6,7 @@ public class Stack {
 		Token store[] = new Token[size];
 	}
 	
-	public Token pop()
+	public Token popStack()
 	{
 		return store[--position];
 	}
@@ -14,5 +14,10 @@ public class Stack {
 	public void push(Token input)
 	{
 		store[position++] = input;
+	}
+	
+	public Token peek()
+	{
+		return store[position];
 	}
 }
