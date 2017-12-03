@@ -46,24 +46,32 @@ public class input {
 		int count = 0;
 		for(int i = 0; i < size; i++)
 		{
-			if(Character.isDigit(expresion.charAt(i)))
+			if(expresion.charAt(i)!=32)
 			{
-				start = i;
-				while (i<size-1 && (expresion.charAt(i+1)=='.' || (expresion.charAt(i+1) >= '0' && expresion.charAt(i+1) <= '9')))
+				if(Character.isDigit(expresion.charAt(i)))
 				{
-					i++;
+					start = i;
+					while (i<size-1 && (expresion.charAt(i+1)=='.' || (expresion.charAt(i+1) >= '0' && expresion.charAt(i+1) <= '9')))
+					{
+						i++;
+					}
+					tokeUp[count] = new Token(Float.parseFloat(expresion.substring(start, i+1)));
+					count++;
 				}
-				tokeUp[count] = new Token(Float.parseFloat(expresion.substring(start, i+1)));
-				count++;
+				else
+				{
+					tokeUp[count] = new Token(expresion.charAt(i));
+					count++;
+				}
 			}
 			else
-			{
-				tokeUp[count] = new Token(expresion.charAt(i));
-				count++;
-			}
+				continue;
 		}
-		
-
+		for(int i=0;i<tokeUp.length;i++)
+		{
+			//System.out.print(tokeUp[i].number);
+			System.out.print(tokeUp[i].type);
+		}
 		
 }
 }
