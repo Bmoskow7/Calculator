@@ -43,14 +43,14 @@ public class input3
 					break;
 				}
 			}
-			int size = expresion.length() - periodcount;
+			int size = expresion.length();
 			int start = 0;
 			
-			Token[] tempo = new Token[size];
+			Token[] tempo = new Token[size-periodcount];
 			int count = 0;
 			for(int i = 0; i < size; i++)
 			{
-					if(Character.isDigit(expresion.charAt(i))||expresion.charAt(i+1)=='.')
+					if(Character.isDigit(expresion.charAt(i))||expresion.charAt(i)=='.')
 					{
 						start = i;
 						while (i<size-1 && (expresion.charAt(i+1)=='.' || (expresion.charAt(i+1) >= '0' && expresion.charAt(i+1) <= '9')))
