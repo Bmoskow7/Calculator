@@ -1,23 +1,24 @@
 
 public class Stack {
-	int position = 0;
+	public int position = 0;
 	Token store[];
+	Token temp[];
 	public Stack(int size){
-		Token store[] = new Token[size];
+		temp = new Token[size];
 	}
 	
 	public Token popStack()
 	{
-		return store[--position];
+		return temp[--position];
 	}
 	
 	public void push(Token input)
 	{
-		store[position++] = input;
+		temp[position++] = input;
 	}
 	
 	public Token peek()
 	{
-		return store[position];
+		return temp[position-1];
 	}
 }

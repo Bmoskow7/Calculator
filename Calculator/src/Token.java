@@ -15,6 +15,7 @@ public class Token {
 		{
 			case '(':
 				type = 1;
+				break;
 			case ')':
 				type = 2;
 				break;
