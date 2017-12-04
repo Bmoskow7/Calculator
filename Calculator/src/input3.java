@@ -8,7 +8,7 @@ public class input3
 			boolean isbroke = false;
 			String expression = "";
 			
-			while(expression!="x")
+			while(!(expression.equals("x")))
 			{
 				isbroke = false;
 				int periodcount = 0;
@@ -91,6 +91,7 @@ public class input3
 			
 			System.out.println(evaluate(tokeUp));
 			}
+			System.out.println("Thank you for using our program");
 		}
 		
 		public static float evaluate(Token[] inp)
