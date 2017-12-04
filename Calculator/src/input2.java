@@ -171,19 +171,93 @@ public class input2 {
 		}
 		while(ops.position != 0)
 		{
-			System.out.println("hello");
-			float temp1;
-			float temp2;
-			Token dostuff;
+			if((ops.position != 0) && (ops.peek().type==3 || ops.peek().type==4))
+			{
+				Token temp[] = new Token[inp.length];
+				int count = 0;
+				
+				while((ops.position != 0) && (ops.peek().type == 3 || ops.peek().type == 4))
+				{		
+					if(count == 0)
+					{
+						temp[count++] = nums.popStack(); 
+					}
+					temp[count++] = ops.popStack();
+					temp[count++] = nums.popStack();
+				}
+				
+				Token temps[] = new Token[count];
+				for(int j = 0; j<count; j++)
+				{
+					temps[j] = temp[j];
+				}
+				    
+				Token tmp;
+			    for (int j = 0; j < temps.length / 2; j++) 
+			    {
+			        tmp = temps[j];
+			        temps[j] = temps[temps.length - 1 - j];
+			        temps[temps.length - 1 - j] = tmp;
+			    }
+				
+			    for (int j = 1; j < temps.length; j = j +2) 
+			    {
+			    	temps[j+1] = quickMaths(temps[j], temps[j-1].number, temps[j+1].number);
+			    	if(j == temps.length-2)
+			    	{
+			    		nums.push(temps[j+1]);
+			    	}
+			    }
+			    
+			}
 			
-			dostuff = ops.popStack();
-			temp1 = nums.popStack().number;
-			temp2 = nums.popStack().number;
-			Token result = quickMaths(dostuff, temp2, temp1);
-			nums.push(result);	
+			
+			if((ops.position != 0) && (ops.peek().type==5 || ops.peek().type==6))
+			{
+				Token temp[] = new Token[inp.length];
+				int count = 0;
+				
+				while((ops.position != 0) && (ops.peek().type == 5 || ops.peek().type == 6))
+				{		
+					if(count == 0)
+					{
+						temp[count++] = nums.popStack(); 
+					}
+					temp[count++] = ops.popStack();
+					temp[count++] = nums.popStack();
+				}
+				
+				Token temps[] = new Token[count];
+				for(int j = 0; j<count; j++)
+				{
+					temps[j] = temp[j];
+				}
+				    
+				Token tmp;
+			    for (int j = 0; j < temps.length / 2; j++) 
+			    {
+			        tmp = temps[j];
+			        temps[j] = temps[temps.length - 1 - j];
+			        temps[temps.length - 1 - j] = tmp;
+			    }
+				
+			    for (int j = 1; j < temps.length; j = j +2) 
+			    {
+			    	temps[j+1] = quickMaths(temps[j], temps[j-1].number, temps[j+1].number);
+			    	if(j == temps.length-2)
+			    	{
+			    		nums.push(temps[j+1]);
+			    	}
+			    }
+			    
+			
+			}
+			
+			System.out.println(ops.position);
 		}
 		
 		return nums.popStack().number;
+		
 	}
 	
 	public static Token quickMaths(Token dostuff, float temp1, float temp2)
@@ -209,11 +283,6 @@ public class input2 {
 		return temp;
 	}
 	
-	public static Token[] postfix(Token inp[])
-	{
-		Token[] temptoke = new Token[inp.length];
-		
-		
-	}
+	
 
 }

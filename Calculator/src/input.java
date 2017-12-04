@@ -176,7 +176,7 @@ public class input {
 		
 		while(ops.position != 0)
 		{
-			while(ops.peek().type==3 || ops.peek().type==4)
+			if(ops.peek().type==3 || ops.peek().type==4)
 			{
 				Token temp[] = new Token[inp.length];
 				int count = 0;
@@ -214,17 +214,15 @@ public class input {
 			    	}
 			    }
 			    
-				
-				break;
 			}
 			
 			
-			while(ops.peek().type==5 || ops.peek().type==6)
+			if(ops.peek().type==5 || ops.peek().type==6)
 			{
 				Token temp[] = new Token[inp.length];
 				int count = 0;
 				
-				while((ops.position != 0) && (ops.peek().type == 3 || ops.peek().type == 4))
+				while((ops.position != 0) && (ops.peek().type == 5 || ops.peek().type == 6))
 				{		
 					if(count == 0)
 					{
@@ -258,7 +256,6 @@ public class input {
 			    }
 			    
 			
-				break;
 			}
 			
 			System.out.println(ops.position);
