@@ -7,33 +7,36 @@ public class input {
 		Scanner S = new Scanner(System.in);
 		String s = S.nextLine();
 		String expresion = s.replaceAll("\\s+","");
-		int size = expresion.length();
-		char[] temp = new char[size];
-		int spacecount = 0;
-		
+		System.out.println(expresion);
+		int periodcount = 0;
 		for(int i = 0; i<expresion.length(); i++)
 		{
+			
+			if(expresion.charAt(i)=='.')
+			{
+				periodcount++;
+			}
+			
+			
 			// check ascii value is valid
 			if((expresion.charAt(i) >= 45 && expresion.charAt(i)<=57) || (expresion.charAt(i) >= 40 && expresion.charAt(i)<=43) || expresion.charAt(i) == 32)
 				{
+
 	
 					
 					// checks to see if two symbols appear in a row, if so then invalid
-					if((i>0) && expresion.charAt(i)!=32 && (!(expresion.charAt(i) >= 48 && expresion.charAt(i)<=57)) && (!(expresion.charAt(i-1) >= 48 && expresion.charAt(i-1)<=57)) )
+					if((i>0) && (!(expresion.charAt(i) >= 48 && expresion.charAt(i)<=57)) && (!(expresion.charAt(i-1) >= 48 && expresion.charAt(i-1)<=57)) )
 					{
-						System.out.println("Invaid input: two symbls next to each other");
+						System.out.println("Invalid input: two symbls next to each other");
 						break;
 					}
 					
 					//gets rid of spaces
-					if(expresion.charAt(i) == 32)
+					else if(expresion.charAt(i) == 32)
 					{
-						spacecount++;
-						System.out.print(spacecount);
-						continue;
+						//continue;
 					}
 					
-					temp[i - spacecount] = expresion.charAt(i);
 					System.out.println("this is valid");
 				}
 			else
@@ -42,9 +45,9 @@ public class input {
 				break;
 			}
 		}
-
+		int size = expresion.length() - periodcount;
 		int start = 0;
-		Token[] tokeUp = new Token[size-spacecount];
+		Token[] tokeUp = new Token[size];
 		int count = 0;
 		for(int i = 0; i < size; i++)
 		{
@@ -69,8 +72,10 @@ public class input {
 			else
 				continue;
 		}
-		for(int i=0;i<tokeUp.length-1;i++)
+		System.out.println("period:" + periodcount);
+		for(int i=0;i<tokeUp.length-2;i++)
 		{
+			//System.out.println(tokeUp[i]);
 			System.out.print(tokeUp[i].type);
 		}
 		
