@@ -37,10 +37,10 @@ public class input3
 						{
 							
 							// checks to see if two symbols appear in a row, if so then invalid
-							if((i>0) && (!(expression.charAt(i) >= 48 && expression.charAt(i)<=57)) && (!(expression.charAt(i-1) >= 48 && expression.charAt(i-1)<=57)) )
+							if((i>0) && expression.charAt(i)!=40 && expression.charAt(i)!=41 && (!(expression.charAt(i) >= 48 && expression.charAt(i)<=57)) && (!(expression.charAt(i-1) >= 48 && expression.charAt(i-1)<=57)) )
 							{
 								System.out.println("Invalid input: two symbols next to each other");
-								//isbroke = true;
+								isbroke = true;
 								break;
 							
 							}
